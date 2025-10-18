@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<title>Series_Indy-Inter_Series หน้าที่ 29 </title>
+<meta charset="utf-8"/>
+
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+          <div class="movies-grid">
+
+
+<div class="movie-item" data-category="Avatar: The Last Airbender (2024)  – เณรน้อยเจ้าอภินิหาร พากย์ไทย">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/RJQAl5JeaE/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2024/02/final-4-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Avatar: The Last Airbender (2024)  – เณรน้อยเจ้าอภินิหาร พากย์ไทย - ตอนที่ 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="Avatar: The Last Airbender (2024)  – เณรน้อยเจ้าอภินิหาร พากย์ไทย">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/aRyUgfHGLf/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2024/02/final-4-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Avatar: The Last Airbender (2024)  – เณรน้อยเจ้าอภินิหาร พากย์ไทย - ตอนที่ 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="Avatar: The Last Airbender (2024)  – เณรน้อยเจ้าอภินิหาร พากย์ไทย">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/u4XHSRT7Kf/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2024/02/final-4-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Avatar: The Last Airbender (2024)  – เณรน้อยเจ้าอภินิหาร พากย์ไทย - ตอนที่ 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="Avatar: The Last Airbender (2024)  – เณรน้อยเจ้าอภินิหาร พากย์ไทย">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/expQukNuAx/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2024/02/final-4-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Avatar: The Last Airbender (2024)  – เณรน้อยเจ้าอภินิหาร พากย์ไทย - ตอนที่ 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="Avatar: The Last Airbender (2024)  – เณรน้อยเจ้าอภินิหาร พากย์ไทย">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/p0Tz9QXxMO/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2024/02/final-4-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Avatar: The Last Airbender (2024)  – เณรน้อยเจ้าอภินิหาร พากย์ไทย - ตอนที่ 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="Avatar: The Last Airbender (2024)  – เณรน้อยเจ้าอภินิหาร พากย์ไทย">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/lotqtJpd17/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2024/02/final-4-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Avatar: The Last Airbender (2024)  – เณรน้อยเจ้าอภินิหาร พากย์ไทย - ตอนที่ 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="Avatar: The Last Airbender (2024)  – เณรน้อยเจ้าอภินิหาร พากย์ไทย">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/Ex1p71bRZg/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2024/02/final-4-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Avatar: The Last Airbender (2024)  – เณรน้อยเจ้าอภินิหาร พากย์ไทย - ตอนที่ 7
+ </div>
+</div>
+
+<div class="movie-item" data-category="Avatar: The Last Airbender (2024)  – เณรน้อยเจ้าอภินิหาร พากย์ไทย">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/TQqAbCaaR/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2024/02/final-4-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Avatar: The Last Airbender (2024)  – เณรน้อยเจ้าอภินิหาร พากย์ไทย - ตอนที่ 8
+ </div>
+</div>
+
+<div class="movie-item" data-category="Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/5npG4fhY/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/10/Pennyworth-The-Origin-of-Batmans-Butler-Season-3-เพนนีเวิร์ท-ต้นกำเนิดพ่อบ้านแบทแมน-3-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย) - ตอนที่ 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/CPoEoHw2/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/10/Pennyworth-The-Origin-of-Batmans-Butler-Season-3-เพนนีเวิร์ท-ต้นกำเนิดพ่อบ้านแบทแมน-3-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย) - ตอนที่ 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/3gelpwAH/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/10/Pennyworth-The-Origin-of-Batmans-Butler-Season-3-เพนนีเวิร์ท-ต้นกำเนิดพ่อบ้านแบทแมน-3-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย) - ตอนที่ 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/JiyR43CE/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/10/Pennyworth-The-Origin-of-Batmans-Butler-Season-3-เพนนีเวิร์ท-ต้นกำเนิดพ่อบ้านแบทแมน-3-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย) - ตอนที่ 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/RiTyaN5p/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/10/Pennyworth-The-Origin-of-Batmans-Butler-Season-3-เพนนีเวิร์ท-ต้นกำเนิดพ่อบ้านแบทแมน-3-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย) - ตอนที่ 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/GiouWLB2/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/10/Pennyworth-The-Origin-of-Batmans-Butler-Season-3-เพนนีเวิร์ท-ต้นกำเนิดพ่อบ้านแบทแมน-3-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย) - ตอนที่ 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/kTMx5m1/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/10/Pennyworth-The-Origin-of-Batmans-Butler-Season-3-เพนนีเวิร์ท-ต้นกำเนิดพ่อบ้านแบทแมน-3-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย) - ตอนที่ 7
+ </div>
+</div>
+
+<div class="movie-item" data-category="Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/KPkVb5XG/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/10/Pennyworth-The-Origin-of-Batmans-Butler-Season-3-เพนนีเวิร์ท-ต้นกำเนิดพ่อบ้านแบทแมน-3-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย) - ตอนที่ 8
+ </div>
+</div>
+
+<div class="movie-item" data-category="Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/8U8WueXM/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/10/Pennyworth-The-Origin-of-Batmans-Butler-Season-3-เพนนีเวิร์ท-ต้นกำเนิดพ่อบ้านแบทแมน-3-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย) - ตอนที่ 9
+ </div>
+</div>
+
+<div class="movie-item" data-category="Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/7y1vQ3rP/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/10/Pennyworth-The-Origin-of-Batmans-Butler-Season-3-เพนนีเวิร์ท-ต้นกำเนิดพ่อบ้านแบทแมน-3-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Pennyworth: The Origin of Batman’s Butler Season 3 – เพนนีเวิร์ท ต้นกำเนิดพ่อบ้านแบทแมน 3 (ซับไทย) - ตอนที่ 10
+ </div>
+</div>
+
+<div class="movie-item" data-category="Batwheels Season 1 – แบทวีลส์ 1 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/MXO9TcLc/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/12/Batwheels-Season-1-th-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Batwheels Season 1 – แบทวีลส์ 1 (พากย์ไทย) - ตอนที่ 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="Batwheels Season 1 – แบทวีลส์ 1 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/Y7sbdSSP/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/12/Batwheels-Season-1-th-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Batwheels Season 1 – แบทวีลส์ 1 (พากย์ไทย) - ตอนที่ 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="Batwheels Season 1 – แบทวีลส์ 1 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/MVdFByZ6/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/12/Batwheels-Season-1-th-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Batwheels Season 1 – แบทวีลส์ 1 (พากย์ไทย) - ตอนที่ 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="Batwheels Season 1 – แบทวีลส์ 1 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/sNeP4pd/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/12/Batwheels-Season-1-th-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Batwheels Season 1 – แบทวีลส์ 1 (พากย์ไทย) - ตอนที่ 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="Batwheels Season 1 – แบทวีลส์ 1 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/hhGK6Xjt/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/12/Batwheels-Season-1-th-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Batwheels Season 1 – แบทวีลส์ 1 (พากย์ไทย) - ตอนที่ 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="Batwheels Season 1 – แบทวีลส์ 1 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/0dptV64i/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/12/Batwheels-Season-1-th-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Batwheels Season 1 – แบทวีลส์ 1 (พากย์ไทย) - ตอนที่ 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="Batwheels Season 1 – แบทวีลส์ 1 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/F2FcjZ9V/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/12/Batwheels-Season-1-th-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Batwheels Season 1 – แบทวีลส์ 1 (พากย์ไทย) - ตอนที่ 7
+ </div>
+</div>
+
+<div class="movie-item" data-category="Batwheels Season 1 – แบทวีลส์ 1 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/4PQ0j9gi/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/12/Batwheels-Season-1-th-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Batwheels Season 1 – แบทวีลส์ 1 (พากย์ไทย) - ตอนที่ 8
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Fall of the House of Usher – บ้านปีศาจ (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/3ZEV9587WT/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/10/final-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Fall of the House of Usher – บ้านปีศาจ (พากย์ไทย) - ตอนที่ 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Fall of the House of Usher – บ้านปีศาจ (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/dQDTAowsel/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/10/final-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Fall of the House of Usher – บ้านปีศาจ (พากย์ไทย) - ตอนที่ 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Fall of the House of Usher – บ้านปีศาจ (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/V7DEQXruct/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/10/final-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Fall of the House of Usher – บ้านปีศาจ (พากย์ไทย) - ตอนที่ 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Fall of the House of Usher – บ้านปีศาจ (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/3Kx3WGcRNx/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/10/final-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Fall of the House of Usher – บ้านปีศาจ (พากย์ไทย) - ตอนที่ 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Fall of the House of Usher – บ้านปีศาจ (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/hI38KKzD/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/10/final-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Fall of the House of Usher – บ้านปีศาจ (พากย์ไทย) - ตอนที่ 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Fall of the House of Usher – บ้านปีศาจ (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/dKy69IXTp/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/10/final-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Fall of the House of Usher – บ้านปีศาจ (พากย์ไทย) - ตอนที่ 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Fall of the House of Usher – บ้านปีศาจ (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/6OzdCPCTZM/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/10/final-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Fall of the House of Usher – บ้านปีศาจ (พากย์ไทย) - ตอนที่ 7
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Fall of the House of Usher – บ้านปีศาจ (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/PHHzoDY2at/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/10/final-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Fall of the House of Usher – บ้านปีศาจ (พากย์ไทย) - ตอนที่ 8
+ </div>
+</div>
+
+<div class="movie-item" data-category="Rap Sh!t Season 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/newvid8I3KQ3KY/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/07/1659197494-3096-rNBX8A4xS7CKUgycOIpDTrd0xkO-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Rap Sh!t Season 1 (ซับไทย) - EP 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="Rap Sh!t Season 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/newvid5jx5Tijo/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/07/1659197494-3096-rNBX8A4xS7CKUgycOIpDTrd0xkO-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Rap Sh!t Season 1 (ซับไทย) - EP 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="Rap Sh!t Season 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/newvidJgPaWxAH/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/07/1659197494-3096-rNBX8A4xS7CKUgycOIpDTrd0xkO-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Rap Sh!t Season 1 (ซับไทย) - ตอนที่ 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="Rap Sh!t Season 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/newvidUlLZo569/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/07/1659197494-3096-rNBX8A4xS7CKUgycOIpDTrd0xkO-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Rap Sh!t Season 1 (ซับไทย) - ตอนที่ 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="Rap Sh!t Season 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/newvidKWc7ai8z/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/07/1659197494-3096-rNBX8A4xS7CKUgycOIpDTrd0xkO-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Rap Sh!t Season 1 (ซับไทย) - ตอนที่ 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="Rap Sh!t Season 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/newvidx157y2id/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/07/1659197494-3096-rNBX8A4xS7CKUgycOIpDTrd0xkO-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Rap Sh!t Season 1 (ซับไทย) - ตอนที่ 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="Rap Sh!t Season 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/newvidoZZlNiEo/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/07/1659197494-3096-rNBX8A4xS7CKUgycOIpDTrd0xkO-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Rap Sh!t Season 1 (ซับไทย) - ตอนที่ 7
+ </div>
+</div>
+
+<div class="movie-item" data-category="Rap Sh!t Season 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/newvidoiHshdKG/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/07/1659197494-3096-rNBX8A4xS7CKUgycOIpDTrd0xkO-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Rap Sh!t Season 1 (ซับไทย) - ตอนที่ 8
+ </div>
+</div>
+
+<div class="movie-item" data-category="Reacher Season 1 – แจ็ค รีชเชอร์ ยอดคนสืบระห่ำ (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/CYoG5EfZ/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Reacher-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Reacher Season 1 – แจ็ค รีชเชอร์ ยอดคนสืบระห่ำ (ซับไทย) - EP 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="Reacher Season 1 – แจ็ค รีชเชอร์ ยอดคนสืบระห่ำ (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/zxlgB3ru/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Reacher-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Reacher Season 1 – แจ็ค รีชเชอร์ ยอดคนสืบระห่ำ (ซับไทย) - EP 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="Reacher Season 1 – แจ็ค รีชเชอร์ ยอดคนสืบระห่ำ (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/OP9dTM2U/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Reacher-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Reacher Season 1 – แจ็ค รีชเชอร์ ยอดคนสืบระห่ำ (ซับไทย) - EP 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="Reacher Season 1 – แจ็ค รีชเชอร์ ยอดคนสืบระห่ำ (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/XTxZk0O9/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Reacher-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Reacher Season 1 – แจ็ค รีชเชอร์ ยอดคนสืบระห่ำ (ซับไทย) - EP 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="Reacher Season 1 – แจ็ค รีชเชอร์ ยอดคนสืบระห่ำ (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/MLoVZBzb/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Reacher-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Reacher Season 1 – แจ็ค รีชเชอร์ ยอดคนสืบระห่ำ (ซับไทย) - EP 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="Reacher Season 1 – แจ็ค รีชเชอร์ ยอดคนสืบระห่ำ (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/t18fklk8/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Reacher-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Reacher Season 1 – แจ็ค รีชเชอร์ ยอดคนสืบระห่ำ (ซับไทย) - EP 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="Reacher Season 1 – แจ็ค รีชเชอร์ ยอดคนสืบระห่ำ (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/QA6A8Cra/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Reacher-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Reacher Season 1 – แจ็ค รีชเชอร์ ยอดคนสืบระห่ำ (ซับไทย) - EP 7
+ </div>
+</div>
+
+<div class="movie-item" data-category="Reacher Season 1 – แจ็ค รีชเชอร์ ยอดคนสืบระห่ำ (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/3ckWRG3/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Reacher-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Reacher Season 1 – แจ็ค รีชเชอร์ ยอดคนสืบระห่ำ (ซับไทย) - EP 8
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ganglands Season 1 – ปล้นท้าทรชน เดอะ ซีรีส์ 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/KqBvfHDU/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/1651226385-3288-ui7lPpdLDTivISvjDvUe8q1jDYs-202x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ganglands Season 1 – ปล้นท้าทรชน เดอะ ซีรีส์ 1 (ซับไทย) - EP 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ganglands Season 1 – ปล้นท้าทรชน เดอะ ซีรีส์ 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/eE0uOvYf/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/1651226385-3288-ui7lPpdLDTivISvjDvUe8q1jDYs-202x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ganglands Season 1 – ปล้นท้าทรชน เดอะ ซีรีส์ 1 (ซับไทย) - EP 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ganglands Season 1 – ปล้นท้าทรชน เดอะ ซีรีส์ 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/UnkE5BFQ/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/1651226385-3288-ui7lPpdLDTivISvjDvUe8q1jDYs-202x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ganglands Season 1 – ปล้นท้าทรชน เดอะ ซีรีส์ 1 (ซับไทย) - EP 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ganglands Season 1 – ปล้นท้าทรชน เดอะ ซีรีส์ 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/VUiYFD0n/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/1651226385-3288-ui7lPpdLDTivISvjDvUe8q1jDYs-202x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ganglands Season 1 – ปล้นท้าทรชน เดอะ ซีรีส์ 1 (ซับไทย) - EP 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ganglands Season 1 – ปล้นท้าทรชน เดอะ ซีรีส์ 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/H9H8fPTm/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/1651226385-3288-ui7lPpdLDTivISvjDvUe8q1jDYs-202x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ganglands Season 1 – ปล้นท้าทรชน เดอะ ซีรีส์ 1 (ซับไทย) - EP 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ganglands Season 1 – ปล้นท้าทรชน เดอะ ซีรีส์ 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/Ju422AtG/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/1651226385-3288-ui7lPpdLDTivISvjDvUe8q1jDYs-202x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ganglands Season 1 – ปล้นท้าทรชน เดอะ ซีรีส์ 1 (ซับไทย) - EP 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/OWPU3M9GzH/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/12/final-2-1-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย) - ตอนที่ 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/KoDdeFj4bH/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/12/final-2-1-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย) - ตอนที่ 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/iZwVhaHY9H/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/12/final-2-1-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย) - ตอนที่ 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/hSa3S7dqh/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/12/final-2-1-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย) - ตอนที่ 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/GKyPSauQTC/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/12/final-2-1-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย) - ตอนที่ 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/8V7Y0dZOre/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/12/final-2-1-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย) - ตอนที่ 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/uX0JMwD6AL/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/12/final-2-1-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย) - ตอนที่ 7
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/BsWslHKyr/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/12/final-2-1-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย) - ตอนที่ 8
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/QZHkC0lDmG/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/12/final-2-1-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย) - ตอนที่ 9
+ </div>
+</div>
+
+<div class="movie-item" data-category="The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/CYx6VW0T1/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/12/final-2-1-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The Crown Season 6 – เดอะ คราวน์ ซีซั่น 6 (พากย์ไทย) - ตอนที่ 10
+ </div>
+</div>
+
+<div class="movie-item" data-category="Lupin Season 3 – จอมโจรลูแปง ภาค 3 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/k3QOwUtG5r/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/10/1696790934-4408-h6Z2oogE4mJk2uffdtIlLhb0EHx-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Lupin Season 3 – จอมโจรลูแปง ภาค 3 (พากย์ไทย) - ตอนที่ 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="Lupin Season 3 – จอมโจรลูแปง ภาค 3 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/m5JwZ2obiW/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/10/1696790934-4408-h6Z2oogE4mJk2uffdtIlLhb0EHx-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Lupin Season 3 – จอมโจรลูแปง ภาค 3 (พากย์ไทย) - ตอนที่ 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="Lupin Season 3 – จอมโจรลูแปง ภาค 3 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/i4trQuUhTq/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/10/1696790934-4408-h6Z2oogE4mJk2uffdtIlLhb0EHx-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Lupin Season 3 – จอมโจรลูแปง ภาค 3 (พากย์ไทย) - ตอนที่ 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="Lupin Season 3 – จอมโจรลูแปง ภาค 3 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/Xs2Hz2Gu58/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/10/1696790934-4408-h6Z2oogE4mJk2uffdtIlLhb0EHx-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Lupin Season 3 – จอมโจรลูแปง ภาค 3 (พากย์ไทย) - ตอนที่ 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="Lupin Season 3 – จอมโจรลูแปง ภาค 3 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/hodeWqsiVD/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/10/1696790934-4408-h6Z2oogE4mJk2uffdtIlLhb0EHx-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Lupin Season 3 – จอมโจรลูแปง ภาค 3 (พากย์ไทย) - ตอนที่ 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="Lupin Season 3 – จอมโจรลูแปง ภาค 3 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/sE4Rgnb7tQ/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/10/1696790934-4408-h6Z2oogE4mJk2uffdtIlLhb0EHx-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Lupin Season 3 – จอมโจรลูแปง ภาค 3 (พากย์ไทย) - ตอนที่ 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="Lupin Season 3 – จอมโจรลูแปง ภาค 3 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/LU9DXW5qM/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/10/1696790934-4408-h6Z2oogE4mJk2uffdtIlLhb0EHx-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Lupin Season 3 – จอมโจรลูแปง ภาค 3 (พากย์ไทย) - ตอนที่ 7
+ </div>
+</div>
+
+<div class="movie-item" data-category="Sex Education Season 4 (2023) – เพศศึกษา หลักสูตรเร่งรัก (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/113pGzQNf0/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/09/final-2-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Sex Education Season 4 (2023) – เพศศึกษา หลักสูตรเร่งรัก (พากย์ไทย) - ตอนที่ 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="Sex Education Season 4 (2023) – เพศศึกษา หลักสูตรเร่งรัก (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/f8XnWlhAZp/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/09/final-2-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Sex Education Season 4 (2023) – เพศศึกษา หลักสูตรเร่งรัก (พากย์ไทย) - ตอนที่ 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="Sex Education Season 4 (2023) – เพศศึกษา หลักสูตรเร่งรัก (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/y8vliATNup/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/09/final-2-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Sex Education Season 4 (2023) – เพศศึกษา หลักสูตรเร่งรัก (พากย์ไทย) - ตอนที่ 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="Sex Education Season 4 (2023) – เพศศึกษา หลักสูตรเร่งรัก (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/s0byZgkBPL/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/09/final-2-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Sex Education Season 4 (2023) – เพศศึกษา หลักสูตรเร่งรัก (พากย์ไทย) - ตอนที่ 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="Sex Education Season 4 (2023) – เพศศึกษา หลักสูตรเร่งรัก (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/IRVofe3NK/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/09/final-2-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Sex Education Season 4 (2023) – เพศศึกษา หลักสูตรเร่งรัก (พากย์ไทย) - ตอนที่ 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="Sex Education Season 4 (2023) – เพศศึกษา หลักสูตรเร่งรัก (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/Sao062V0uy/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/09/final-2-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Sex Education Season 4 (2023) – เพศศึกษา หลักสูตรเร่งรัก (พากย์ไทย) - ตอนที่ 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="Sex Education Season 4 (2023) – เพศศึกษา หลักสูตรเร่งรัก (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/pEvmNxNST/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/09/final-2-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Sex Education Season 4 (2023) – เพศศึกษา หลักสูตรเร่งรัก (พากย์ไทย) - ตอนที่ 7
+ </div>
+</div>
+
+<div class="movie-item" data-category="Sex Education Season 4 (2023) – เพศศึกษา หลักสูตรเร่งรัก (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/2slZ2oK9tn/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/09/final-2-225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Sex Education Season 4 (2023) – เพศศึกษา หลักสูตรเร่งรัก (พากย์ไทย) - ตอนที่ 8
+ </div>
+</div>
+
+
+
+<div class="col-lg-12 col-md-12 col-xs-12">
+<div align="center" class="example">
+<nav>
+<ul class="pagination">
+<li><a aria-label="Previous" href="go:main-serie"><span aria-hidden="true"><<  กลับหน้าหลัก </span></a></li>
+
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(21).html">21</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(22).html">22</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(23).html">23</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(24).html">24</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(25).html">25</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(26).html">26</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(27).html">27</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(28).html">28</a></li>
+<li class="active"><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(29).html"><b>29</b></a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(30).html">30</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(31).html"> หน้าต่อไป</a></li>
+
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form></div>
+</div>
+</div>
+</div></div></div></div></body></html>

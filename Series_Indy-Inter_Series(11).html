@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<title>Series_Indy-Inter_Series หน้าที่ 11 </title>
+<meta charset="utf-8"/>
+
+
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+-----------------------------------------------------------------------------------
+
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+
+<div class="movies-grid">
+<div class="movie-item" data-category="Game of Thrones Season 8 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Game-of-Thrones8-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/2AB02kGe/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 8 (พากย์ไทย) - EP 1</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 8 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Game-of-Thrones8-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/9n1ksqwO/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 8 (พากย์ไทย) - EP 2</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 8 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Game-of-Thrones8-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/nT8dq3FY/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 8 (พากย์ไทย) - EP 3</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 8 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Game-of-Thrones8-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/FjmqJFxb/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 8 (พากย์ไทย) - EP 4</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 8 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Game-of-Thrones8-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/R3src0ln/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 8 (พากย์ไทย) - EP 5</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 8 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Game-of-Thrones8-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/NJmi47e/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 8 (พากย์ไทย) - EP 6</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 7 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Game-of-Thrones-Season-7-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/9JEjolX/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 7 (ซับไทย) - EP 1</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 7 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Game-of-Thrones-Season-7-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/0fFrWNt/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 7 (ซับไทย) - EP 2</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 7 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Game-of-Thrones-Season-7-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/lKbtzkPG/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 7 (ซับไทย) - EP 3</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 7 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Game-of-Thrones-Season-7-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/2fxjt6Hp/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 7 (ซับไทย) - EP 4</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 7 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Game-of-Thrones-Season-7-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/0GiBoP7o/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 7 (ซับไทย) - EP 5</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 7 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Game-of-Thrones-Season-7-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/JagUVyKa/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 7 (ซับไทย) - EP 6</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 7 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Game-of-Thrones-Season-7-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/pfbhrX59/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 7 (ซับไทย) - EP 7</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Saeson 4 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Throne4-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/JxHIC3go/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Saeson 4 (พากย์ไทย) - EP 1</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Saeson 4 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Throne4-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/o8pQhI9O/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Saeson 4 (พากย์ไทย) - EP 2</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Saeson 4 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Throne4-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/qHF9czVx/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Saeson 4 (พากย์ไทย) - EP 3</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Saeson 4 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Throne4-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/wbGhQQSH/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Saeson 4 (พากย์ไทย) - EP 4</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Saeson 4 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Throne4-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/UBy0M62d/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Saeson 4 (พากย์ไทย) - EP 5</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Saeson 4 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Throne4-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/O14eRVhH/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Saeson 4 (พากย์ไทย) - EP 6</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Saeson 4 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Throne4-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/FdbfXvxc/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Saeson 4 (พากย์ไทย) - EP 7</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Saeson 4 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Throne4-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/D59AmPFn/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Saeson 4 (พากย์ไทย) - EP 8</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Saeson 4 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Throne4-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/ZP7yDOmM/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Saeson 4 (พากย์ไทย) - EP 9</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Saeson 4 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Throne4-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/djkFBfbl/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Saeson 4 (พากย์ไทย) - EP 10</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 1 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-SS1-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/YqcUu1CI/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 1 (พากย์ไทย) - EP 1</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 1 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-SS1-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/KaDLPXYk/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 1 (พากย์ไทย) - EP 2</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 1 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-SS1-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/iVaoEatO/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 1 (พากย์ไทย) - EP 3</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 1 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-SS1-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/xGLv0zQZ/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 1 (พากย์ไทย) - EP 4</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 1 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-SS1-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/CUOWUIm1/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 1 (พากย์ไทย) - EP 5</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 1 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-SS1-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/IREEzAB6/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 1 (พากย์ไทย) - EP 6</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 1 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-SS1-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/U7Pmhnbi/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 1 (พากย์ไทย) - EP 7</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 1 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-SS1-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/QHWHzAp/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 1 (พากย์ไทย) - EP 8</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 1 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-SS1-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/Bye4hbuR/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 1 (พากย์ไทย) - EP 9</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 1 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-SS1-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/KeMnpV2BE/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 1 (พากย์ไทย) - EP 10</div>
+</div>
+
+<div class="movie-item" data-category="Peacemaker Season 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Peacemaker-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/FOz7ZtLx/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Peacemaker Season 1 (ซับไทย) - EP 1</div>
+</div>
+
+<div class="movie-item" data-category="Peacemaker Season 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Peacemaker-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/Vh3Rjucs/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Peacemaker Season 1 (ซับไทย) - EP 2</div>
+</div>
+
+<div class="movie-item" data-category="Peacemaker Season 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Peacemaker-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/1T8bFRHX/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Peacemaker Season 1 (ซับไทย) - EP 3</div>
+</div>
+
+<div class="movie-item" data-category="Peacemaker Season 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Peacemaker-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/bLrsVzr/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Peacemaker Season 1 (ซับไทย) - EP 4</div>
+</div>
+
+<div class="movie-item" data-category="Peacemaker Season 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Peacemaker-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/rhRX2Ueb/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Peacemaker Season 1 (ซับไทย) - EP 5</div>
+</div>
+
+<div class="movie-item" data-category="Peacemaker Season 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Peacemaker-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/49CYCHSi/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Peacemaker Season 1 (ซับไทย) - EP 6</div>
+</div>
+
+<div class="movie-item" data-category="Peacemaker Season 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Peacemaker-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/1qiGHZK8/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Peacemaker Season 1 (ซับไทย) - EP 7</div>
+</div>
+
+<div class="movie-item" data-category="Peacemaker Season 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/01/Peacemaker-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/plPEziSw/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Peacemaker Season 1 (ซับไทย) - EP 8</div>
+</div>
+
+<div class="movie-item" data-category="Loki Season 1 เทพซ่าส์ล่าข้ามเวลา (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2021/12/Loki1-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/zCJzhHmn/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Loki Season1 – เทพซ่าส์ล่าข้ามเวลา (ซับไทย) - EP 1</div>
+</div>
+
+<div class="movie-item" data-category="Loki Season 1 เทพซ่าส์ล่าข้ามเวลา (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2021/12/Loki1-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/haQ8V0Vi/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Loki Season1 – เทพซ่าส์ล่าข้ามเวลา (ซับไทย) - EP 2</div>
+</div>
+
+<div class="movie-item" data-category="Loki Season 1 เทพซ่าส์ล่าข้ามเวลา (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2021/12/Loki1-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/jLIL7Gur/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Loki Season1 – เทพซ่าส์ล่าข้ามเวลา (ซับไทย) - EP 3</div>
+</div>
+
+<div class="movie-item" data-category="Loki Season 1 เทพซ่าส์ล่าข้ามเวลา (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2021/12/Loki1-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/rLdNfaiU/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Loki Season1 – เทพซ่าส์ล่าข้ามเวลา (ซับไทย) - EP 4</div>
+</div>
+
+<div class="movie-item" data-category="Loki Season 1 เทพซ่าส์ล่าข้ามเวลา (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2021/12/Loki1-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/BE5QMVor/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Loki Season1 – เทพซ่าส์ล่าข้ามเวลา (ซับไทย) - EP 5</div>
+</div>
+
+<div class="movie-item" data-category="Loki Season 1 เทพซ่าส์ล่าข้ามเวลา (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2021/12/Loki1-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/eL0Nq1lt/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Loki Season1 – เทพซ่าส์ล่าข้ามเวลา (ซับไทย) - EP 6</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 3 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/1644081051-9884-u3bZgnGQ9T01sWNhyveQz0wH0Hl-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/RYMNRQjX/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 3 (พากย์ไทย) - EP 1</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 3 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/1644081051-9884-u3bZgnGQ9T01sWNhyveQz0wH0Hl-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/BDGyYrh/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 3 (พากย์ไทย) - EP 2</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 3 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/1644081051-9884-u3bZgnGQ9T01sWNhyveQz0wH0Hl-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/tSUcErip/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 3 (พากย์ไทย) - EP 3</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 3 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/1644081051-9884-u3bZgnGQ9T01sWNhyveQz0wH0Hl-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/TAXjeJBr/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 3 (พากย์ไทย) - EP 4</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 3 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/1644081051-9884-u3bZgnGQ9T01sWNhyveQz0wH0Hl-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/nTdvsDMW/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 3 (พากย์ไทย) - EP 5</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 3 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/1644081051-9884-u3bZgnGQ9T01sWNhyveQz0wH0Hl-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/WkxxXADi/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 3 (พากย์ไทย) - EP 6</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 3 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/1644081051-9884-u3bZgnGQ9T01sWNhyveQz0wH0Hl-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/dWZwHuVf/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 3 (พากย์ไทย) - EP 7</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 3 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/1644081051-9884-u3bZgnGQ9T01sWNhyveQz0wH0Hl-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/Nz5zjWcb/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 3 (พากย์ไทย) - EP 8</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 3 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/1644081051-9884-u3bZgnGQ9T01sWNhyveQz0wH0Hl-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/UQxCJEas/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 3 (พากย์ไทย) - EP 9</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 3 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/1644081051-9884-u3bZgnGQ9T01sWNhyveQz0wH0Hl-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/7whiBlQw0a/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 3 (พากย์ไทย) - EP 10</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 5 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-5-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/FEE1XViC/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 5 (พากย์ไทย) - EP 1</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 5 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-5-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/wAn3hAHE/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 5 (พากย์ไทย) - EP 2</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 5 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-5-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/kI8lwdnJ/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 5 (พากย์ไทย) - EP 3</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 5 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-5-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/mTtdiPJC/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 5 (พากย์ไทย) - EP 4</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 5 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-5-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/urtbnbk0/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 5 (พากย์ไทย) - EP 5</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 5 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-5-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/o5mIDGKC/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 5 (พากย์ไทย) - EP 6</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 5 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-5-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/8zZexejG/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 5 (พากย์ไทย) - EP 7</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 5 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-5-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/EFZ6B2dR/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 5 (พากย์ไทย) - EP 8</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 5 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-5-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/lfEQZRge/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 5 (พากย์ไทย) - EP 9</div>
+</div>
+
+<div class="movie-item" data-category="Game of Thrones Season 5 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/02/Game-of-Thrones-5-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/zBJAVvhs/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Game of Thrones Season 5 (พากย์ไทย) - EP 10</div>
+</div>
+
+<div class="movie-item" data-category="Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/09/Star-Wars-Andor-Season-1-203x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/N34RdqPN/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย) - ตอนที่ 1</div>
+</div>
+
+<div class="movie-item" data-category="Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/09/Star-Wars-Andor-Season-1-203x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/PAALh9QX/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย) - ตอนที่ 2</div>
+</div>
+
+<div class="movie-item" data-category="Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/09/Star-Wars-Andor-Season-1-203x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/suKWtand/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย) - ตอนที่ 3</div>
+</div>
+
+<div class="movie-item" data-category="Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/09/Star-Wars-Andor-Season-1-203x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/swY0D72s/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย) - ตอนที่ 4</div>
+</div>
+
+<div class="movie-item" data-category="Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/09/Star-Wars-Andor-Season-1-203x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/mVgFOFBf/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย) - ตอนที่ 5</div>
+</div>
+
+<div class="movie-item" data-category="Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/09/Star-Wars-Andor-Season-1-203x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/KzrCL5U/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย) - ตอนที่ 6</div>
+</div>
+
+<div class="movie-item" data-category="Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/09/Star-Wars-Andor-Season-1-203x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/v3OyA86t/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย) - ตอนที่ 7</div>
+</div>
+
+<div class="movie-item" data-category="Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/09/Star-Wars-Andor-Season-1-203x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/xfNFdbh7/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย) - ตอนที่ 8</div>
+</div>
+
+<div class="movie-item" data-category="Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/09/Star-Wars-Andor-Season-1-203x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/oZU7rAZd/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย) - ตอนที่ 9</div>
+</div>
+
+<div class="movie-item" data-category="Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/09/Star-Wars-Andor-Season-1-203x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/NbU6msEu/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย) - ตอนที่ 10</div>
+</div>
+
+<div class="movie-item" data-category="Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/09/Star-Wars-Andor-Season-1-203x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/CZTNCFBe/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย) - ตอนที่ 11</div>
+</div>
+
+<div class="movie-item" data-category="Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/09/Star-Wars-Andor-Season-1-203x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/Mcz9Lf6/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Star Wars: Andor Season 1 – สตาร์ วอร์ส เอ็นดอร์ 1 (ซับไทย) - ตอนที่ 12</div>
+</div>
+
+<div class="movie-item" data-category="Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/08/Chesapeake-Shores-Season-6-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/newvidzJh9Ouzv/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย) - ตอนที่ 1</div>
+</div>
+
+<div class="movie-item" data-category="Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/08/Chesapeake-Shores-Season-6-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/newvidxJVHgueK/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย) - ตอนที่ 2</div>
+</div>
+
+<div class="movie-item" data-category="Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/08/Chesapeake-Shores-Season-6-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/newvidrLiu5c9E/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย) - ตอนที่ 3</div>
+</div>
+
+<div class="movie-item" data-category="Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/08/Chesapeake-Shores-Season-6-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/newvid10dNbLkh/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย) - ตอนที่ 4</div>
+</div>
+
+<div class="movie-item" data-category="Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/08/Chesapeake-Shores-Season-6-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/newvid34pxLM/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย) - ตอนที่ 5</div>
+</div>
+
+<div class="movie-item" data-category="Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/08/Chesapeake-Shores-Season-6-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/37gDhn9t/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย) - ตอนที่ 6</div>
+</div>
+
+<div class="movie-item" data-category="Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/08/Chesapeake-Shores-Season-6-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/2nsY6plu/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย) - ตอนที่ 7</div>
+</div>
+
+<div class="movie-item" data-category="Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/08/Chesapeake-Shores-Season-6-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/zV2XZ0LS/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย) - ตอนที่ 8</div>
+</div>
+
+<div class="movie-item" data-category="Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/08/Chesapeake-Shores-Season-6-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/0Jwz8OCo/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย) - ตอนที่ 9</div>
+</div>
+
+<div class="movie-item" data-category="Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/08/Chesapeake-Shores-Season-6-200x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/jVhqIRWf/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">Chesapeake Shores Season 6 – เชซาพีคชอร์ส 6 (ซับไทย) - ตอนที่ 10</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/lDHIbcl3/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 1</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/A6i1PbeU/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 2</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/gxowKzZC/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 3</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/sWZyhJD/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 4</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/qSMNg3iU/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 5</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/VFhETMEw/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 6</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/7fM88qzy/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 7</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/yzuFnaCs/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 8</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/2fpYPaEr/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 9</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/jf13OgPD/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 10</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/qghNkXM/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 11</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/P2Pu2pHv/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 12</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/idxCNLCO/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 13</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/Y9r4COP/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 14</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/bHLrZrOs/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 15</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/GtvT2R6Z/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 16</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/CJYG9hlb/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 17</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/F4H7R1iw/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 18</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/jhkdhbpS/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 19</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/SpJ5hkQP/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 20</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/Yy81vsXl/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 21</div>
+</div>
+
+<div class="movie-item" data-category="The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย)">
+  <div class="movie-box">
+    <div class="movie-image">
+      <button type="button" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-Walking-Dead-Season-10-ล่าสยอง...กองทัพผีดิบ-10-225x300.jpg);" onclick="window.location.href='https://series.team-indy.net/embed/lBwcdsVk/video.mp4/chunk.m3u8/'" autofocus="">
+      </button>
+    </div>
+  </div>
+  <div class="movie-title">The Walking Dead Season 10 – ล่าสยอง…กองทัพผีดิบ 10 (พากย์ไทย) - ตอนที่ 22</div>
+</div>
+
+
+<div class="col-lg-12 col-md-12 col-xs-12">
+<div align="center" class="example">
+<nav>
+<ul class="pagination">
+<li><a aria-label="Previous" href="go:main-serie"><span aria-hidden="true"><<  กลับหน้าหลัก </span></a></li>
+
+<li class="active"><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(11).html"><b>11</b></a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(12).html">12</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(13).html">13</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(14).html">14</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(15).html">15</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(16).html">16</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(17).html">17</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(18).html">18</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(19).html">19</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(20).html">20</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(21).html"> หน้าต่อไป</a></li>
+
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form></div>
+</div>
+</div>
+</div></div></div></div></body></html>

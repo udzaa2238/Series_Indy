@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<title>Series_Indy-Inter_Series หน้าที่ 27 </title>
+<meta charset="utf-8"/>
+
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+          <div class="movies-grid">
+
+
+<div class="movie-item" data-category="Ms. Marvel Season 1 – มิสมาร์เวล 1 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/LbAr11Gb/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/06/Ms.-Marvel-Season-1-TH-212x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ms. Marvel Season 1 – มิสมาร์เวล 1 (พากย์ไทย) - EP 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ms. Marvel Season 1 – มิสมาร์เวล 1 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/Ny5pzo4H/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/06/Ms.-Marvel-Season-1-TH-212x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ms. Marvel Season 1 – มิสมาร์เวล 1 (พากย์ไทย) - EP 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ms. Marvel Season 1 – มิสมาร์เวล 1 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/5I9U8NMW/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/06/Ms.-Marvel-Season-1-TH-212x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ms. Marvel Season 1 – มิสมาร์เวล 1 (พากย์ไทย) - EP 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ms. Marvel Season 1 – มิสมาร์เวล 1 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/zTS7ZqFt/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/06/Ms.-Marvel-Season-1-TH-212x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ms. Marvel Season 1 – มิสมาร์เวล 1 (พากย์ไทย) - EP 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ms. Marvel Season 1 – มิสมาร์เวล 1 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/Ztuhop1z/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/06/Ms.-Marvel-Season-1-TH-212x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ms. Marvel Season 1 – มิสมาร์เวล 1 (พากย์ไทย) - EP 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ms. Marvel Season 1 – มิสมาร์เวล 1 (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/newvid18HanHRa/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/06/Ms.-Marvel-Season-1-TH-212x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ms. Marvel Season 1 – มิสมาร์เวล 1 (พากย์ไทย) - EP 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ahsoka – อาโซก้า (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/7LDviuED7X/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/08/Ahsoka-อาโซก้า--225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ahsoka – อาโซก้า (พากย์ไทย) - ตอนที่ 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ahsoka – อาโซก้า (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/BIyZuSlahP/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/08/Ahsoka-อาโซก้า--225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ahsoka – อาโซก้า (พากย์ไทย) - ตอนที่ 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ahsoka – อาโซก้า (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/Z1mwmjIsKG/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/08/Ahsoka-อาโซก้า--225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ahsoka – อาโซก้า (พากย์ไทย) - ตอนที่ 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ahsoka – อาโซก้า (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/FNSiizmPEH/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/08/Ahsoka-อาโซก้า--225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ahsoka – อาโซก้า (พากย์ไทย) - ตอนที่ 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ahsoka – อาโซก้า (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/efNdvM07/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/08/Ahsoka-อาโซก้า--225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ahsoka – อาโซก้า (พากย์ไทย) - ตอนที่ 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ahsoka – อาโซก้า (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/836VQv2iLg/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/08/Ahsoka-อาโซก้า--225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ahsoka – อาโซก้า (พากย์ไทย) - ตอนที่ 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ahsoka – อาโซก้า (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/kvCEXp5Nye/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/08/Ahsoka-อาโซก้า--225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ahsoka – อาโซก้า (พากย์ไทย) - ตอนที่ 7
+ </div>
+</div>
+
+<div class="movie-item" data-category="Ahsoka – อาโซก้า (พากย์ไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/XWnQdTMQwL/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2023/08/Ahsoka-อาโซก้า--225x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  Ahsoka – อาโซก้า (พากย์ไทย) - ตอนที่ 8
+ </div>
+</div>
+
+<div class="movie-item" data-category="The White Lotus Season 2 – เดอะไวท์โลตัส 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/3izFApHu/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-White-Lotus-Season-2-เดอะไวท์โลตัส-2-ซับไทย-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The White Lotus Season 2 – เดอะไวท์โลตัส 2 (ซับไทย) - ตอนที่ 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="The White Lotus Season 2 – เดอะไวท์โลตัส 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/SHRc47d/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-White-Lotus-Season-2-เดอะไวท์โลตัส-2-ซับไทย-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The White Lotus Season 2 – เดอะไวท์โลตัส 2 (ซับไทย) - ตอนที่ 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="The White Lotus Season 2 – เดอะไวท์โลตัส 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/V0fVmCoY/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-White-Lotus-Season-2-เดอะไวท์โลตัส-2-ซับไทย-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The White Lotus Season 2 – เดอะไวท์โลตัส 2 (ซับไทย) - ตอนที่ 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="The White Lotus Season 2 – เดอะไวท์โลตัส 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/lUnZzTC3/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-White-Lotus-Season-2-เดอะไวท์โลตัส-2-ซับไทย-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The White Lotus Season 2 – เดอะไวท์โลตัส 2 (ซับไทย) - ตอนที่ 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="The White Lotus Season 2 – เดอะไวท์โลตัส 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/4sbn2fdD/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-White-Lotus-Season-2-เดอะไวท์โลตัส-2-ซับไทย-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The White Lotus Season 2 – เดอะไวท์โลตัส 2 (ซับไทย) - ตอนที่ 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="The White Lotus Season 2 – เดอะไวท์โลตัส 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/ZTVUeluq/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-White-Lotus-Season-2-เดอะไวท์โลตัส-2-ซับไทย-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The White Lotus Season 2 – เดอะไวท์โลตัส 2 (ซับไทย) - ตอนที่ 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="The White Lotus Season 2 – เดอะไวท์โลตัส 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/Bj7veBhj/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-White-Lotus-Season-2-เดอะไวท์โลตัส-2-ซับไทย-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The White Lotus Season 2 – เดอะไวท์โลตัส 2 (ซับไทย) - ตอนที่ 7
+ </div>
+</div>
+
+<div class="movie-item" data-category="The White Lotus Season 1 – เดอะไวท์โลตัส 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/3biclbqD/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-White-Lotus-Season-1-เดอะไวท์โลตัส-1-ซับไทย-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The White Lotus Season 1 – เดอะไวท์โลตัส 1 (ซับไทย) - ตอนที่ 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="The White Lotus Season 1 – เดอะไวท์โลตัส 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/c8eRUoDR/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-White-Lotus-Season-1-เดอะไวท์โลตัส-1-ซับไทย-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The White Lotus Season 1 – เดอะไวท์โลตัส 1 (ซับไทย) - ตอนที่ 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="The White Lotus Season 1 – เดอะไวท์โลตัส 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/Tm3gY8c/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-White-Lotus-Season-1-เดอะไวท์โลตัส-1-ซับไทย-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The White Lotus Season 1 – เดอะไวท์โลตัส 1 (ซับไทย) - ตอนที่ 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="The White Lotus Season 1 – เดอะไวท์โลตัส 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/qZqxUi66/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-White-Lotus-Season-1-เดอะไวท์โลตัส-1-ซับไทย-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The White Lotus Season 1 – เดอะไวท์โลตัส 1 (ซับไทย) - ตอนที่ 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="The White Lotus Season 1 – เดอะไวท์โลตัส 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/nusXl1lq/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-White-Lotus-Season-1-เดอะไวท์โลตัส-1-ซับไทย-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The White Lotus Season 1 – เดอะไวท์โลตัส 1 (ซับไทย) - ตอนที่ 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="The White Lotus Season 1 – เดอะไวท์โลตัส 1 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/i6vz5Eh7/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/11/The-White-Lotus-Season-1-เดอะไวท์โลตัส-1-ซับไทย-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The White Lotus Season 1 – เดอะไวท์โลตัส 1 (ซับไทย) - ตอนที่ 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/eHzWqfzM/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-6-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย) - EP 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/rSXppmF5/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-6-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย) - EP 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/P9Fyfdib/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-6-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย) - EP 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/Ir8LoA3g/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-6-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย) - EP 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/GyRsBDnD/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-6-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย) - EP 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/bUXkhhqU/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-6-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย) - EP 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/ICpF04hk/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-6-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย) - EP 7
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/xfQGhcLj/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-6-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย) - EP 8
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/CI0Adqsx/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-6-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย) - EP 9
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/IbTuiov/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-6-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย) - EP 10
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/ubx7ZRO6/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-6-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย) - EP 11
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/kQz8oKW/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-6-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย) - EP 12
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/PWjqcjo/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-6-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 6 – 100 ฝ่าโลกมฤตยู 6 (ซับไทย) - EP 13
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/Vpe9wuqs/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-5-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย) - EP 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/tzp9rbzz/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-5-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย) - EP 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/WiG6tNH8/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-5-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย) - EP 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/KXU3TiIL/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-5-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย) - EP 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/8UAGvnHh/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-5-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย) - EP 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/hyWGWVBs/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-5-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย) - EP 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/ZxJfFWIA/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-5-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย) - EP 7
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/8IKTht8y/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-5-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย) - EP 8
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/uvJcxZ7e/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-5-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย) - EP 9
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/Oe61opz/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-5-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย) - EP 10
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/6JoxyZkI/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-5-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย) - EP 11
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/UD1plknb/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-5-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย) - EP 12
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/J0a437e/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-5-200x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 5 – 100 ฝ่าโลกมฤตยู 5 (ซับไทย) - EP 13
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/GZ7vseik/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-4-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย) - EP 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/KUaNRxty/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-4-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย) - EP 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/0fOs0E7C/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-4-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย) - EP 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/h8D4dWnI/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-4-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย) - EP 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/qC16dyW5/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-4-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย) - EP 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/YLgvHGi0/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-4-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย) - EP 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/D0KCdLs/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-4-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย) - EP 7
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/w36DotTA/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-4-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย) - EP 8
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/pqHCdayZ/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-4-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย) - EP 9
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/7xgmRS0Q/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-4-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย) - EP 10
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/zty1uTs/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-4-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย) - EP 11
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/yULas0Jq/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-4-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย) - EP 12
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/wjUtP155/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-4-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 4 – 100 ฝ่าโลกมฤตยู 4 (ซับไทย) - EP 13
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/pJmIE06C/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-2-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย) - EP 1
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/t87tbAiV/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-2-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย) - EP 2
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/9vaRDNMN/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-2-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย) - EP 3
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/YeFp6YaH/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-2-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย) - EP 4
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/pHbsJM6Z/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-2-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย) - EP 5
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/xrEPnI5c/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-2-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย) - EP 6
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/BGIXcG4B/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-2-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย) - EP 7
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/yaTzBqPH/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-2-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย) - EP 8
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/b2OeV5z/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-2-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย) - EP 9
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/bs8typpJ/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-2-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย) - EP 10
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/9Qd7gN6u/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-2-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย) - EP 11
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/ajhOwAkd/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-2-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย) - EP 12
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/H0rdMqlD/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-2-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย) - EP 13
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/1n9jXkO/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-2-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย) - EP 14
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/goj7kvt3/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-2-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย) - EP 15
+ </div>
+</div>
+
+<div class="movie-item" data-category="The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย)">
+ <div class="movie-box">
+  <div class="movie-image">
+   <button autofocus="" onclick="window.location.href='https://series-cdn.team-indy.net:8443/vod/MBKlrCdF/video.mp4/chunk.m3u8'" style="background-image:url(https://series-indy.com/wp-content/uploads/2022/04/The-100-Season-2-204x300.jpg);" type="button">
+   </button>
+  </div>
+ </div>
+ <div class="movie-title">
+  The 100 Season 2 – 100 ฝ่าโลกมฤตยู 2 (ซับไทย) - EP 16
+ </div>
+</div>
+
+
+
+<div class="col-lg-12 col-md-12 col-xs-12">
+<div align="center" class="example">
+<nav>
+<ul class="pagination">
+<li><a aria-label="Previous" href="go:main-serie"><span aria-hidden="true"><<  กลับหน้าหลัก </span></a></li>
+
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(21).html">21</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(22).html">22</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(23).html">23</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(24).html">24</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(25).html">25</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(26).html">26</a></li>
+<li class="active"><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(27).html"><b>27</b></a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(28).html">28</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(29).html">29</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(30).html">30</a></li>
+		<li><a href="https://udzaa2238.github.io/Series_Indy/Series_Indy-Inter_Series(31).html"> หน้าต่อไป</a></li>
+
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form></div>
+</div>
+</div>
+</div></div></div></div></body></html>
